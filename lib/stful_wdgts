@@ -1,0 +1,45 @@
+import 'dart:ffi';
+
+import 'dart:math';
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
+import './main.dart';
+import 
+
+class newapp extends StatefulWidget {
+  newappz({Key? key}) : super(key: key);
+
+  @override
+  State<newappz> createState() => _newappzState();
+}
+
+class _newappzState extends State<newappz> {
+  List<int> stuff = [1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  var _scaffkey = GlobalKey<ScaffoldState>();
+  @override
+  Widget build(BuildContext context) {
+    ToastContext().init(context);
+    return Scaffold(
+        key: _scaffkey,
+        drawer: Drawer(
+            child: IconButton(
+                onPressed: (() {
+                  Navigator.of(context).pop();
+                  Toast.show('pressed',
+                      duration: Toast.lengthShort,
+                      gravity: Toast.center,
+                      backgroundColor: Colors.black);
+                }),
+                icon: Icon(Icons.arrow_back)),
+            backgroundColor: Colors.white),
+        appBar: AppBar(
+          title: Center(
+            child: Text('newapp'),
+          ),
+          backgroundColor: Colors.black87,
+        ),
+        body: Center());
+  }
+}
